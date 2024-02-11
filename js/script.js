@@ -3,8 +3,11 @@ function createGrid(gridOrder) {
     for (let i = 1; i <= gridOrder ** 2; i++) {
         const gridSquare = document.createElement('div');
         gridSquare.classList.add('grid-square');
-        gridSquare.id = `grid-square-${i}`;
         container.appendChild(gridSquare);
+
+        // Resize gridSquare width and height proportional to gridOrder
+        gridSquare.style.width = `calc(100% / ${gridOrder}`;
+        gridSquare.style.height = `calc(100% / ${gridOrder}`;
     }
 }
 
@@ -25,7 +28,7 @@ let gridOrder = 16;
 createGrid(gridOrder);
 
 // For each square in grid
-document.querySelectorAll('.grid-square').forEach((square) => {
+const pen = document.querySelectorAll('.grid-square').forEach((square) => {
     // Fill black color in square div when mouse cursor passes over it.
     square.addEventListener('mouseover', () => {
         square.style.backgroundColor = "black";
@@ -48,6 +51,7 @@ resetButton.addEventListener('click', () => {
         gridOrder = newGridOrder;
         // New grid
         createGrid(gridOrder);
+        pen.call();
     }
     else 
     {
