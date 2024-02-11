@@ -24,3 +24,7 @@ body {
     border-style: dotted;
     border-width: 1px;
 }
+
+button {
+    margin-bottom: 1em;
+}
