@@ -14,13 +14,12 @@ body {
     height: 640px;
     display: flex;
     flex-wrap: wrap;
-    border: solid 3px black;
+    border: solid 50px rgb(211, 0, 0);
     box-sizing: content-box;
 }
 
 .grid-square {
-    border-style: dotted;
-    border-width: 1px;
+    background-color: #D3D3D3;
 }
 
 button {
