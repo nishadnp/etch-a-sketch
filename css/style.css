@@ -6,6 +6,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: rgb(170, 172, 162);
+    margin: 0;
 }
 
 
@@ -16,6 +18,7 @@ body {
     flex-wrap: wrap;
     border: solid 50px rgb(211, 0, 0);
     box-sizing: content-box;
+    border-radius: 50px;
 }
 
 .grid-square {
@@ -24,4 +27,18 @@ body {
 
 button {
     margin-bottom: 1em;
+}
+
+footer {
+    margin-top: 100px;
+    padding: 30px;
+    text-align: center;
+    background-color: rgb(85, 83, 93);
+    width: 100%;
+    color: rgb(170, 172, 162);
+    font-weight: 700;
+}
+
+a {
+    color: rgb(170, 172, 162);
 }
