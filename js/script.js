@@ -1,3 +1,4 @@
+// Removes Grid
 function createGrid(gridOrder) {
     // Create 256 divs inside #container div
     for (let i = 1; i <= gridOrder ** 2; i++) {
@@ -11,6 +12,7 @@ function createGrid(gridOrder) {
     }
 }
 
+// Removes Grid
 function removeGrid(gridOrder) {
     for (let i = 1; i <= gridOrder ** 2; i++) {
         const gridSquare = document.querySelector('.grid-square');
@@ -18,27 +20,19 @@ function removeGrid(gridOrder) {
     }
 }
 
-
-// <-------Main code------->
-
-const container = document.getElementById('container');
-// Default gridOrder value
-let gridOrder = 16;
-// Initial grid
-createGrid(gridOrder);
-
-// For each square in grid
-const pen = document.querySelectorAll('.grid-square').forEach((square) => {
+// Function that activates pen to sketch
+function sketchPen() {
+    // For each square in grid
+    document.querySelectorAll('.grid-square').forEach((square) => {
     // Fill black color in square div when mouse cursor passes over it.
-    square.addEventListener('mouseover', () => {
-        square.style.backgroundColor = "black";
+        square.addEventListener('mouseover', () => {
+            square.style.backgroundColor = "black";
+        });
     });
-});
+}
 
-
-const resetButton = document.getElementById('grid-reset');
-
-resetButton.addEventListener('click', () => {
+// Reset Grid button event
+document.getElementById('grid-reset').addEventListener('click', () => {
     // Prompt user new grid size
     let newGridOrder = parseInt(prompt("Enter New Grid Size (16 - 100): "));
 
@@ -51,10 +45,22 @@ resetButton.addEventListener('click', () => {
         gridOrder = newGridOrder;
         // New grid
         createGrid(gridOrder);
-        pen.call();
+
+        sketchPen();
     }
     else 
     {
         alert("Invalid Input!");
     }
 });
+
+
+// <-------Main code------->
+
+const container = document.getElementById('container');
+// Default gridOrder value
+let gridOrder = 16;
+// Initial grid
+createGrid(gridOrder);
+
+sketchPen();
