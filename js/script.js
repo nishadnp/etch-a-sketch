@@ -20,13 +20,24 @@ function removeGrid(gridOrder) {
     }
 }
 
+// Generate a random RGB color
+function generateRGBColor() {
+    // Assign seperate random value between 0 to 255 to each parameters of RGB
+    const RED_COLOR_LEVEL = Math.floor(Math.random() * 256);
+    const GREEN_COLOR_LEVEL = Math.floor(Math.random() * 256);
+    const BLUE_COLOR_LEVEL = Math.floor(Math.random() * 256);
+    
+    const RGB_COLOR =  `rgb(${RED_COLOR_LEVEL}, ${BLUE_COLOR_LEVEL}, ${GREEN_COLOR_LEVEL})`;
+    return RGB_COLOR;
+}
+
 // Function that activates pen to sketch
 function sketchPen() {
     // For each square in grid
     document.querySelectorAll('.grid-square').forEach((square) => {
     // Fill black color in square div when mouse cursor passes over it.
         square.addEventListener('mouseover', () => {
-            square.style.backgroundColor = "black";
+            square.style.backgroundColor = generateRGBColor();
         });
     });
 }
