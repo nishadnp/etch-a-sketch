@@ -26,7 +26,7 @@ function generateRGBColor() {
     const RED_COLOR_LEVEL = Math.floor(Math.random() * 256);
     const GREEN_COLOR_LEVEL = Math.floor(Math.random() * 256);
     const BLUE_COLOR_LEVEL = Math.floor(Math.random() * 256);
-    
+
     const RGB_COLOR =  `rgb(${RED_COLOR_LEVEL}, ${BLUE_COLOR_LEVEL}, ${GREEN_COLOR_LEVEL})`;
     return RGB_COLOR;
 }
@@ -37,7 +37,12 @@ function sketchPen() {
     document.querySelectorAll('.grid-square').forEach((square) => {
     // Fill black color in square div when mouse cursor passes over it.
         square.addEventListener('mouseover', () => {
-            square.style.backgroundColor = generateRGBColor();
+            const computedStyle = window.getComputedStyle(square);
+            // Check if div square is already colored to avoid to recoloring.
+            // rgb(211, 211, 211) is the equivalent of #D3D3D3 color.
+            if (computedStyle.getPropertyValue("background-color") === "rgb(211, 211, 211)") {
+                square.style.backgroundColor = generateRGBColor();
+            }               
         });
     });
 }
